@@ -1,0 +1,82 @@
+export const sysPassStates = {
+  id: "sysPass",
+  initial: "LOGIN_PAGE",
+  states: {
+    LOGIN_PAGE: {
+      on: {
+        LOGIN: "SEARCH_ACCOUNTS_LIST",
+      },
+    },
+    SEARCH_ACCOUNTS_LIST: {
+      on: {
+        ADD_NEW_PROFILE: {
+          target: "PROFILE_LIST_WITH_PROFILE_ADDED",
+        },
+        ADD_NEW_GROUP: {
+          target: "GROUP_LIST_WITH_GROUP_ADDED",
+        },
+        ADD_NEW_USER: {
+          target: "USER_LIST_WITH_USER_ADDED",
+        },
+        VIEW_LOGS_LIST: { target: "LOGS_LIST" },
+        LOGOUT: { target: "LOGGED_OFF" },
+        ADD_NEW_PROFILE_WITH_MANAGEMENT_PROPS: {
+          target: "PROFILE_LIST_WITH_PROFILE_ADDED",
+        },
+        ADD_NEW_GROUP_WITH_DESCRIPTION_AND_USER: {
+          target: "GROUP_LIST_WITH_GROUP_ADDED",
+        },
+        ADD_NEW_USER_WITH_PROPS: {
+          target: "USER_LIST_WITH_USER_ADDED",
+        },
+        ADD_NEW_NOTIFICATION: "NOTIFICATION_LIST_WITH_ADDED_ITEM",
+        ADD_NEW_CATEGORY: "CATEGORY_LIST_WITH_CATEGORY_ADDED",
+        ADD_NEW_CUSTOMER: "CUSTOMER_LIST_WITH_CUSTOMER_ADDED",
+        ADD_NEW_ACCOUNT: "SEARCH_ACCOUNTS_LIST_WITH_ACCOUNT_ADDED",
+        ADD_NEW_ACCOUNT_WITH_EXPIRY_DATE:
+          "SEARCH_ACCOUNTS_LIST_WITH_ACCOUNT_ADDED",
+      },
+    },
+    PROFILE_LIST_WITH_PROFILE_ADDED: {},
+    CATEGORY_LIST_WITH_CATEGORY_ADDED: {},
+    CUSTOMER_LIST_WITH_CUSTOMER_ADDED: {
+      on: {
+        DELETE_COSTUMER: "CUSTOMER_LIST_WITH_CUSTOMER_DELETED",
+      },
+    },
+    CUSTOMER_LIST_WITH_CUSTOMER_DELETED: {},
+    GROUP_LIST_WITH_GROUP_ADDED: {},
+    USER_LIST_WITH_USER_ADDED: {
+      on: {
+        EDIT_USER: "USER_LIST_WITH_USER_EDITED",
+      },
+    },
+    USER_LIST_WITH_USER_EDITED: {},
+    SEARCH_ACCOUNTS_LIST_WITH_ACCOUNT_ADDED: {
+      on: {
+        VIEW_ACCOUNT_DETAILS: {
+          target: "ACCOUNT_DETAILS",
+        },
+        VIEW_USER_PASSWORD: {
+          target: "MODAL_ACCOUNT_PASSWORD",
+        },
+        CHANGE_ACCOUNT_VIEW_MODE: {
+          target: "SEARCH_ACCOUNTS_LIST_AS_CARDS",
+        },
+        DELETE_ACCOUNT: "SEARCH_ACCOUNTS_LIST_WITH_ACCOUNT_DELETED",
+      },
+    },
+    SEARCH_ACCOUNTS_LIST_WITH_ACCOUNT_DELETED: {},
+    ACCOUNT_DETAILS: {},
+    MODAL_ACCOUNT_PASSWORD: {},
+    LOGS_LIST: {},
+    SEARCH_ACCOUNTS_LIST_AS_CARDS: {},
+    LOGGED_OFF: {},
+    NOTIFICATION_LIST_WITH_ADDED_ITEM: {
+      on: {
+        DELETE_NOTIFICATION: "NOTIFICATION_LIST_WITHOUT_ADDED_ITEM",
+      },
+    },
+    NOTIFICATION_LIST_WITHOUT_ADDED_ITEM: {},
+  },
+};
